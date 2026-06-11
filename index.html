@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Computer Butler - Phase 1 Wireframes</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#f2f2f2;color:#222;padding:40px}
+h1{font-size:24px;margin-bottom:4px}
+.note{color:#666;margin-bottom:8px;font-size:14px}
+h2.sect{margin:44px 0 18px;font-size:18px;border-bottom:2px solid #ccc;padding-bottom:8px}
+.row{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.frame-wrap{display:flex;flex-direction:column;gap:8px}
+.cap{font-size:13px;color:#555;font-weight:600;text-align:center}
+.phone{width:390px;height:844px;border:2px solid #222;border-radius:24px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.body{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1.5px solid #ddd;font-weight:700}
+.tabbar{display:flex;border-top:1.5px solid #ccc}
+.tab{flex:1;text-align:center;padding:14px 0;font-size:12px;color:#888;border-right:1px solid #eee}
+.tab:last-child{border-right:none}
+.tab.on{font-weight:700;color:#111}
+.btn{border:1.5px solid #444;border-radius:10px;padding:13px;text-align:center;font-weight:600;background:#e8e8e8}
+.btn.big{padding:26px;font-size:17px}
+.btn.sm{padding:8px 14px;font-size:13px}
+.btn.ghost{background:#fff;color:#555}
+.input{border:1.5px solid #aaa;border-radius:8px;padding:13px;color:#999;background:#fff}
+.card{border:1.5px solid #bbb;border-radius:10px;padding:12px;background:#fafafa}
+.sec{font-size:12px;font-weight:700;color:#555;letter-spacing:.4px;display:flex;justify-content:space-between;margin-top:4px}
+.x{border:1.5px solid #999;background:linear-gradient(to top right,transparent calc(50% - .7px),#bbb,transparent calc(50% + .7px)),linear-gradient(to bottom right,transparent calc(50% - .7px),#bbb,transparent calc(50% + .7px));display:flex;align-items:center;justify-content:center;color:#777;font-size:13px}
+.x span{background:#fff;padding:2px 8px}
+.muted{color:#777;font-size:13px}
+.small{font-size:12px;color:#888}
+.hr{display:flex;gap:10px}
+.hr>*{flex:1}
+.statusbar{display:flex;border:1.5px solid #999;border-radius:8px;overflow:hidden;font-size:11px;text-align:center}
+.statusbar div{flex:1;padding:9px 2px;color:#888;border-right:1px solid #ccc}
+.statusbar div:last-child{border-right:none}
+.statusbar .on{background:#ddd;color:#000;font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;color:#555}
+.tl{display:flex;gap:10px;font-size:13px;color:#555;border-left:2px solid #ccc;padding:4px 0 4px 12px}
+.tag{display:inline-block;border:1px solid #888;border-radius:6px;padding:2px 8px;font-size:11px;color:#555;background:#eee;width:fit-content}
+.spacer{flex:1}
+.sheet{border:2px dashed #888;border-radius:16px 16px 0 0;padding:14px;background:#fff;display:flex;flex-direction:column;gap:10px;box-shadow:0 -4px 14px rgba(0,0,0,.15)}
+.desk{width:1440px;height:1024px;border:2px solid #222;background:#fff;display:flex;overflow:hidden;zoom:.42}
+.nav{width:200px;border-right:1.5px solid #ccc;padding:24px 14px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.nav .it{padding:12px 14px;border-radius:8px;color:#666}
+.nav .it.on{background:#e4e4e4;font-weight:700;color:#000}
+.main{flex:1;padding:28px;display:flex;flex-direction:column;gap:18px;overflow:hidden}
+.toolbar{display:flex;align-items:center;gap:14px}
+.toolbar h3{font-size:24px;margin-right:auto}
+.cols{display:flex;gap:18px;flex:1}
+.col{flex:1;border:1.5px solid #ccc;border-radius:10px;padding:12px;background:#f7f7f7;display:flex;flex-direction:column;gap:10px}
+.colh{font-weight:700;font-size:14px;color:#444}
+.tcard{border:1.5px solid #aaa;border-radius:10px;padding:12px;background:#fff;font-size:13px;display:flex;flex-direction:column;gap:4px}
+.tcard.hot{border:2.5px solid #333}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid #ccc;padding:8px 10px;text-align:left;color:#555}
+th{background:#eee;color:#333}
+.bignum{font-size:56px;font-weight:800}
+.quote{border-left:3px solid #bbb;padding:6px 12px;color:#666;font-size:14px;background:#fafafa}
+.check{display:flex;gap:10px;align-items:center;font-size:14px;color:#444}
+.check .bx{width:18px;height:18px;border:1.5px solid #777;border-radius:4px;flex:none}
+.minirep{border:2px solid #555;border-radius:18px;width:300px;padding:12px;display:flex;flex-direction:column;gap:8px;background:#fff}
+</style>
+</head>
+<body>
+<h1>Computer Butler (电脑管家) - Phase 1 Wireframes</h1>
+p class='note'>Grayscale layout preview. 11 screens + 2 variants. This page is a reference for redrawing in Figma - not the submission itself.</p>
+
+<h2 class='sect'>Owner side - mobile 390x844</h2>
+<div class='row'>
+
+<div class='frame-wrap'><div class='phone'><div class='body' style='justify-content:center;gap:16px'>
+<div class='x' style='width:80px;height:80px;align-self:center'><span>logo</span></div>
+<div style='text-align:center;font-size:20px;font-weight:800'>Computer Butler 电脑管家</div>
+<div class='input'>Phone number</div>
+<div class='hr'><div class='input'>Verification code</div><div class='btn sm' style='flex:none'>Send code</div></div>
+<div class='btn'>Log in</div>
+<div class='small' style='text-align:center;text-decoration:underline'>中文 / EN</div>
+</div></div><div class='cap'>1 Login</div></div>
+
+<div class='frame-wrap'><div class='phone'>
+<div class='topbar'><span>Hi, Mr. Chen</span><div class='x' style='width:26px;height:26px'></div></div>
+<div class='body'>
+<div class='btn big'>+ Report an Issue</div>
+<div class='sec'><span>OPEN TICKETS (2)</span></div>
+<div class='card' style='display:flex;justify-content:space-between'><div><b>#1024 Printer not working</b><div class='muted'>Status: In progress</div><div class='muted'>ETA: 30 min</div></div><div style='width:16px;height:16px;background:#999;border-radius:4px'></div></div>
+<div class='card' style='display:flex;justify-content:space-between'><div><b>#1025 Email sync issue</b><div class='muted'>Status: Assigned</div><div class='muted'>ETA: 2 hrs</div></div><div style='width:16px;height:16px;background:#ccc;border-radius:4px'></div></div>
+<div class='sec'><span>COMPANY OVERVIEW</span><span class='small'>View all &gt;</span></div>
+<div class='card' style='display:flex;justify-content:space-between;align-items:center'><span>June Health Report is ready</span><span>&#8594;</span></div>
+<div class='spacer'></div>
+</div>
+<div class='tabbar'><div class='tab on'>Home</div><div class='tab'>Report</div><div class='tab'>Reports</div><div class='tab'>Plans</div></div>
+</div><div class='cap'>2 Home / Ticket Overview</div></div>
+
+<div class='frame-wrap'><div class='phone'>
+<div class='topbar'><span class='small'>&lt; Back</span><span>Report an Issue</span><span style='width:34px'></span></div>
+<div class='body'>
+<div class='x' style='height:200px'><span>Tap to add photo</span></div>
+<div class='input' style='height:120px'>Describe the problem...</div>
+<div class='hr'><div class='btn sm ghost'>Voice</div><div class='btn sm ghost'>Type</div></div>
+<div class='input'>Urgency: Normal &#9662;</div>
+<div class='spacer'></div>
+<div class='btn'>Submit</div>
+</div></div><div class='cap'>3 Report Issue - Step 1</div></div>
+
+<div class='frame-wrap'><div class='phone'><div class='body' style='justify-content:center;gap:16px'>
+<div style='width:60px;height:60px;border:2px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;align-self:center'>&#10003;</div>
+<div style='text-align:center;font-size:22px;font-weight:800'>Ticket #1024 created</div>
+<div class='card' style='text-align:center'><b>Remote response within 30 minutes</b></div>
+<div class='muted' style='text-align:center'>Based on your service plan: Standard</div>
+<div class='hr'><div class='btn ghost'>View ticket</div><div class='btn'>Back to home</div></div>
+</div></div><div class='cap'>4 Confirmation + SLA promise</div></div>
+
+<div class='frame-wrap'><div class='phone'><div class='body' style='justify-content:center;gap:16px'>
+<div style='width:60px;height:60px;border:2px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;align-self:center'>&#10003;</div>
+<div style='text-align:center;font-size:22px;font-weight:800'>Ticket #1031 created</div>
+<div class='card' style='text-align:center'><b>Response: next business day (Mon 8:00 AM)</b></div>
+<div class='card'><b>Emergency self-help checklist &#9662;</b><div class='muted'>- Check the power cable</div><div class='muted'>- Restart the router</div><div class='muted'>- Check network cables</div></div>
+<div class='hr'><div class='btn ghost'>View ticket</div><div class='btn'>Back to home</div></div>
+</div></div><div class='cap'>4A Variant - weekend / SLA boundary</div></div>
+
+<div class='frame-wrap'><div class='phone'><div class='body' style='justify-content:center;gap:16px'>
+<div style='width:60px;height:60px;border:2px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;align-self:center'>!</div>
+<div style='text-align:center;font-size:22px;font-weight:800'>Request received</div>
+<div class='card' style='text-align:center'><b>This is a project request - quoted separately</b></div>
+<div class='muted' style='text-align:center'>Outside your current support contract</div>
+<div class='btn'>Request an estimate</div>
+</div></div><div class='cap'>4B Variant - out-of-scope request</div></div>
+
+<div class='frame-wrap'><div class='phone'>
+<div class='topbar'><span class='small'>&lt; Back</span><span>Ticket #1024</span><span style='width:34px'></span></div>
+<div class='body'>
+<div class='statusbar'><div>Submitted</div><div>Assigned</div><div class='on'>In progress</div><div>Resolved</div></div>
+<div class='grid2'><span>Reported: Jun 11, 9:02</span><span>Assignee: Ben</span><span>Type: Printer</span><span>ETA: 30 min</span></div>
+<div class='x' style='width:120px;height:120px'><span>photo</span></div>
+<div class='sec'><span>UPDATES</span></div>
+<div class='tl'><span>9:02</span><span>Ticket submitted</span></div>
+<div class='tl'><span>9:10</span><span>Assigned to Ben</span></div>
+<div class='tl'><span>9:15</span><span>Remote session started</span></div>
+<div class='spacer'></div>
+<div class='btn ghost'>Add a comment</div>
+</div></div><div class='cap'>5 Ticket Detail</div></div>
+
+<div class='frame-wrap'><div class='phone'>
+<div class='topbar'><span>June IT Health Report</span></div>
+<div class='body'>
+<div class='card' style='display:flex;align-items:center;gap:16px'><span class='bignum'>B+</span><span class='muted'>Overall health</span></div>
+<div class='sec'><span>&#9888; NEEDS ATTENTION (1)</span></div>
+<div class='card'><b>3 of 12 computers have no backup</b><div style='margin-top:8px'><span class='btn sm ghost' style='display:inline-block'>What does this mean?</span></div></div>
+<div class='sec'><span>&#10003; LOOKING GOOD (4)</span></div>
+<div class='card' style='padding:9px'>Antivirus up to date</div>
+<div class='card' style='padding:9px'>Email security OK</div>
+<div class='card' style='padding:9px'>Disk space OK</div>
+<div class='card' style='padding:9px'>Updates installed</div>
+<div class='spacer'></div>
+<div class='btn'>Compare service plans</div>
+</div></div><div class='cap'>6 Monthly Health Report</div></div>
+
+<div class='frame-wrap'><div class='phone'>
+<div class='topbar'><span>Service Plans</span></div>
+<div class='body'>
+<div class='hr'>
+<div class='card'><b>Basic</b><div class='muted'>$85/user/mo</div><div class='small' style='margin-top:8px'>&#10003; Remote support<br>&#10003; Backup monitoring<br>&mdash; On-site visits<br>&#10003; Monthly report</div></div>
+<div class='card' style='border-width:2.5px'><b>Standard</b><div class='muted'>$110/user/mo</div><div class='small' style='margin-top:8px'>&#10003; Remote support<br>&#10003; Backup monitoring<br>&#10003; On-site visits<br>&#10003; Monthly report</div></div>
+</div>
+<div class='small' style='text-align:center'>Minimum $500/month</div>
+<div class='btn'>Request a quote</div>
+<div class='spacer'></div>
+<div class='sheet'><b>Request a quote</b><div class='input'>Company name</div><div class='input'>Phone</div><div class='btn'>Send request</div><div class='small' style='text-align:center'>(bottom sheet - appears on tap)</div></div>
+</div></div><div class='cap'>7 Plan Comparison + Quote</div></div>
+
+</div>
+
+<h2 class='sect'>Butler side - desktop 1440x1024 (scaled)</h2>
+<div class='row'>
+
+<div class='frame-wrap'><div class='desk'>
+<div class='nav'><div class='it on'>Tickets</div><div class='it'>Clients</div><div class='it'>Reports</div><div class='it'>Projects</div></div>
+<div class='main'>
+<div class='toolbar'><h3>Tickets</h3><div class='input' style='width:240px'>Sort: SLA deadline &#9662;</div><div class='input' style='width:220px'>Search...</div></div>
+<div class='cols'>
+<div class='col'><div class='colh'>New (3)</div>
+<div class='tcard hot'><b>#1024 Printer not working</b><span>Chen Trading Co.</span><b>SLA: 22 min left</b><span class='tag'>Remote-solvable</span></div>
+<div class='tcard'><b>#1026 Wifi drops in meeting room</b><span>Lee Dental Clinic</span><b>SLA: 3 hrs left</b><span class='tag'>On-site likely</span></div>
+<div class='tcard'><b>#1027 New laptop setup</b><span>Wang Accounting</span><b>SLA: next biz day</b><span class='tag'>Remote-solvable</span></div></div>
+<div class='col'><div class='colh'>In Progress (2)</div>
+<div class='tcard'><b>#1022 Email migration</b><span>Wang Accounting</span><b>SLA: 5 hrs left</b><span class='tag'>Remote session</span></div>
+<div class='tcard'><b>#1023 Backup failed on NAS</b><span>Chen Trading Co.</span><b>SLA: 1 day left</b><span class='tag'>Monitoring</span></div></div>
+<div class='col'><div class='colh'>Resolved today (5)</div>
+<div class='tcard'><b>#1019 Password reset</b><span>Lee Dental Clinic</span><span class='muted'>Closed 10:20</span></div>
+<div class='tcard'><b>#1018 Printer driver</b><span>Chen Trading Co.</span><span class='muted'>Closed 9:40</span></div>
+<div class='muted'>+ 3 more</div></div>
+</div></div></div><div class='cap'>8 Ticket Board</div></div>
+
+<div class='frame-wrap'><div class='desk'>
+<div class='nav'><div class='it on'>Tickets</div><div class='it'>Clients</div><div class='it'>Reports</div><div class='it'>Projects</div></div>
+<div class='main'>
+<div style='display:flex;gap:24px;flex:1'>
+<div style='flex:7;display:flex;flex-direction:column;gap:14px'>
+<h3>#1024 Printer not working</h3>
+<div class='x' style='width:260px;height:160px'><span>photo from client</span></div>
+<div class='quote'>"No one in the office can print since 9 AM. Error screen attached." - Mr. Chen</div>
+<div class='card'><b>AI triage:</b> Likely remote-solvable - driver issue (87%)</div>
+<div class='hr' style='max-width:640px'><div class='btn sm'>Start remote session</div><div class='btn sm ghost'>Schedule on-site</div><div class='btn sm ghost'>Mark resolved</div></div>
+<div class='sec'><span>UPDATES</span></div>
+<div class='tl'><span>9:02</span><span>Ticket submitted by Mr. Chen</span></div>
+<div class='tl'><span>9:10</span><span>Auto-assigned by SLA priority</span></div>
+<div class='spacer'></div>
+<div class='hr'><div class='input'>Resolution note...</div><div class='btn sm' style='flex:none'>Close ticket</div></div>
+</div>
+<div style='flex:3;border-left:1.5px solid #ddd;padding-left:24px;display:flex;flex-direction:column;gap:14px'>
+<div style='text-align:center'><div class='bignum'>22:14</div><div class='small'>SLA TIME LEFT</div></div>
+<div class='card'>Contract: <b>Standard</b></div>
+<div class='card'>Client: <b>Chen Trading Co.</b></div>
+<div class='btn sm ghost'>View client profile</div>
+</div>
+</div></div></div><div class='cap'>9 Ticket Detail + SLA countdown</div></div>
+
+<div class='frame-wrap'><div class='desk'>
+<div class='nav'><div class='it'>Tickets</div><div class='it on'>Clients</div><div class='it'>Reports</div><div class='it'>Projects</div></div>
+<div class='main'>
+<div class='toolbar'><h3>Chen Trading Co.</h3><span class='tag'>Standard plan</span><div class='btn sm'>Send quote</div></div>
+<div class='hr' style='max-width:760px'>
+<div class='card' style='text-align:center'><div style='font-size:28px;font-weight:800'>12</div><div class='small'>Devices</div></div>
+<div class='card' style='text-align:center'><div style='font-size:28px;font-weight:800'>1</div><div class='small'>Open tickets</div></div>
+<div class='card' style='text-align:center'><div style='font-size:28px;font-weight:800'>2026-03</div><div class='small'>Client since</div></div>
+</div>
+<div class='sec'><span>DEVICE INVENTORY</span></div>
+<table><tr><th>Device</th><th>User</th><th>Backup</th><th>Last check</th></tr>
+<tr><td>PC-01</td><td>Front desk</td><td>Yes</td><td>Jun 10</td></tr>
+<tr><td>PC-02</td><td>Accounting</td><td>No</td><td>Jun 10</td></tr>
+<tr><td>NAS-01</td><td>Server room</td><td>Yes</td><td>Jun 11</td></tr>
+<tr><td>PRN-01</td><td>Office printer</td><td>-</td><td>Jun 09</td></tr></table>
+<div class='sec'><span>SERVICE HISTORY</span></div>
+<div class='tl'><span>Jun 11</span><span>Printer outage - remote fix</span></div>
+<div class='tl'><span>Jun 02</span><span>Email migration support</span></div>
+<div class='tl'><span>May 20</span><span>Monthly maintenance visit</span></div>
+<div class='sec'><span>CONTRACT SCOPE</span></div>
+<div class='card'>Remote + on-site support, backup monitoring, monthly reporting for 12 devices.<br><b>Out of scope: new-site networking, hardware purchases</b></div>
+</div></div><div class='cap'>10 Client Profile</div></div>
+
+<div class='frame-wrap'><div class='desk'>
+<div class='nav'><div class='it'>Tickets</div><div class='it'>Clients</div><div class='it on'>Reports</div><div class='it'>Projects</div></div>
+<div class='main'>
+<div class='toolbar'><h3>Generate Health Report - Chen Trading Co.</h3><div class='input' style='width:160px'>June &#9662;</div></div>
+<div class='cols'>
+<div class='col' style='background:#fff'><div class='colh'>INCLUDE SECTIONS</div>
+<div class='check'><div class='bx'></div>Backup status</div>
+<div class='check'><div class='bx'></div>Security risks</div>
+<div class='check'><div class='bx'></div>Device inventory</div>
+<div class='check'><div class='bx'></div>Tickets summary</div>
+<div class='check'><div class='bx'></div>Recommendations</div>
+<div class='input' style='height:140px'>Notes for the client...</div></div>
+<div class='col' style='align-items:center;justify-content:center'>
+<div class='small'>Preview - what the owner sees</div>
+<div class='minirep'>
+<div class='card' style='display:flex;align-items:center;gap:10px'><span style='font-size:30px;font-weight:800'>B+</span><span class='small'>Overall health</span></div>
+<div class='card'><b class='small'>3 of 12 computers have no backup</b></div>
+<div class='card' style='padding:6px' ><span class='small'>Antivirus up to date</span></div>
+<div class='card' style='padding:6px'><span class='small'>Email security OK</span></div>
+<div class='card' style='padding:6px'><span class='small'>Disk space OK</span></div>
+</div></div>
+</div>
+<div class='hr' style='max-width:420px'><div class='btn ghost'>Save draft</div><div class='btn'>Send to client</div></div>
+</div></div><div class='cap'>11 Health Report Generator</div></div>
+
+</div>
+<p class='note' style='margin-top:40px'>Reference only - redraw in Figma for submission. Computer Butler (电脑管家), Phase 1, June 2026.</p>
+</body>
+</html>
